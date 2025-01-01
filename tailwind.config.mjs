@@ -15,9 +15,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      barlow: ["--var(--font-barlow)"],
-      barlow_condensed: ["--var(--font-barlow-condensed)"],
-      poppins: ["--var(--font-poppins)"],
+      barlow: ["var(--font-barlow)"],
+      barlow_condensed: ["var(--font-barlow-condensed)"],
+      poppins: ["var(--font-poppins)"],
     },
     extend: {
       colors: {

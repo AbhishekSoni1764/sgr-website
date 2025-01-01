@@ -4,20 +4,27 @@ import "./globals.css";
 const barlow = Barlow({
   variable: "--font-barlow",
   subsets: ["latin"],
+  weight: ['400', '500', '700'],
 });
 
 const barlowCondensed = Barlow_Condensed({
   variable: "--font-barlow-condensed",
   subsets: ["latin"],
+  weight: ['400', '500', '700'],
 });
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ['400', '500', '700'],
 });
 
 export const metadata = {
-  title: "SGR",
+  title: "SGR - Shyam Global Resources",
   description: "Shyam Global Resources",
+  icons: {
+    icon: '/assets/logo.png',
+    shortcut: '/assets/logo.png',
+  }
 };
 
 export default function RootLayout({ children }) {
