@@ -1,5 +1,6 @@
 import { Barlow, Barlow_Condensed, Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -31,8 +32,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${barlow.variable} ${barlowCondensed.variable} ${poppins.variable} antialiased`}
-      >
+        className={`${barlow.variable} ${barlowCondensed.variable} ${poppins.variable} antialiased`}>
+        <Navbar className="bg-transparent rounded-none" />
         {children}
       </body>
     </html>

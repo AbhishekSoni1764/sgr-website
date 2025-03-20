@@ -1,4 +1,6 @@
+import HeroSection from '@/components/Hero';
 import Head from 'next/head';
+
 
 export default function Home() {
   return (
@@ -18,8 +20,7 @@ export default function Home() {
           content="Welcome to Shyam Global Resources, your partner for innovative global solutions and services."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://yourwebsite.com" />
-        <meta property="og:image" content="/path/to/og-image.jpg" />
+        <meta property="og:url" content="https://shyamglobalresources.vercel.app/" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Shyam Global Resources" />
         <meta
@@ -31,9 +32,7 @@ export default function Home() {
       </Head>
 
       {/* Main Content */}
-      <div className="h-screen bg-primary-800 text-secondary-800 flex flex-col justify-center items-center font-barlow">
-        <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold">Shyam Global Resources</h1>
-      </div>
+      <HeroSection />
     </>
   );
 }
