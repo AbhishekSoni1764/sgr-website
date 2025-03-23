@@ -18,7 +18,7 @@ const AboutSection = () => {
             <motion.p
                 variants={zoomIn}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="font-barlow font-black max-w-5xl leading-max text-6xl text-primary-800"
+                className="font-barlow font-black max-w-5xl leading-max text-6xl text-primary-800 pt-24"
             >
                 Your Trusted Partner for Industrial Salt Solutions
             </motion.p>

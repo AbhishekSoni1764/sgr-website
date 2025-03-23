@@ -5,35 +5,26 @@ import { ImagesSlider } from "./custom/image-slider";
 import EmailIcon from "@mui/icons-material/Email";
 import EastIcon from "@mui/icons-material/East";
 import { slideLeft, slideRight, staggerContainer, zoomIn } from "@/lib/framer-animations";
+import { heroImages } from "@/data/imagesData";
 
 const HeroSection = () => {
-    const images = [
-        "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1482189349482-3defd547e0e9?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1485433592409-9018e83a1f0d?q=80&w=1814&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=3456&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        "https://images.unsplash.com/photo-1482189349482-3defd547e0e9?q=80&w=2848&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    ];
-
-    const [selectedIndex, setSelectedIndex] = useState(null);
-
-    const handleImageClick = (index) => {
-        setSelectedIndex(!selectedIndex);
-    };
-
+    const [selectedImage, setSelectedImage] = useState(null);
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: false, amount: 0.2 });
+    const isInView = useInView(ref, { once: false, amount: 0.1 });
 
     return (
-        <motion.div
-            ref={ref}
-            variants={staggerContainer}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            className="h-screen w-full flex flex-col justify-center items-center">
-            <ImagesSlider className="h-screen text-secondary-800 flex flex-col justify-center items-center font-barlow" images={images}>
+        <motion.div className="h-screen w-full flex flex-col justify-center items-center">
+            <ImagesSlider
+                className="h-screen text-secondary-800 flex flex-col justify-center items-center font-barlow"
+                images={heroImages}
+                selectedImage={selectedImage}
+                setSelectedImage={setSelectedImage}
+            >
                 <motion.div
+                    ref={ref}
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate={isInView ? "visible" : "hidden"}
                     className="z-50 flex flex-col justify-center items-center"
                 >
                     <motion.p
@@ -71,25 +62,25 @@ const HeroSection = () => {
                     </motion.div>
                 </motion.div>
             </ImagesSlider>
-            <motion.div className="absolute -bottom-[17vw] flex gap-5 justify-center items-center w-full">
-                {images.map((image, index) => {
-                    const isEven = (index - (selectedIndex ?? 0)) % 2 === 0;
 
-                    return (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.8, y: 0 }}
-                            animate={{ opacity: 1, scale: 1, y: isEven ? "-10vw" : "-7vw" }}
-                            transition={{ duration: 0.2, delay: 0.1 * index }}
-                            className="relative w-[30vw] h-72 bg-slate-600 cursor-pointer"
-                            onClick={() => handleImageClick(index)}
-                        >
-                            <div className={`absolute inset-0 bg-black bg-opacity-20 h-full w-full`} />
-                            <img src={image} alt="image" className="w-full h-full object-cover object-center" />
-                        </motion.div>
-                    );
-                })}
+            <motion.div className="absolute -bottom-[17vw] flex gap-8 justify-center items-center w-full">
+                {heroImages.map((image, index) => (
+                    <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.8, y: 0 }}
+                        animate={{ opacity: 1, scale: 1, y: index % 2 !== 0 ? "-10vw" : "-7vw" }}
+                        whileHover={{ y: index % 2 !== 0 ? "-11vw" : "-8vw", transition: { duration: 0.3, ease: "easeInOut" } }}
+                        transition={{ duration: 0.2, delay: 0.1 * index }}
+                        className="relative w-[30vw] h-72 bg-slate-600 cursor-pointer"
+                        onClick={() => setSelectedImage(image)}
+                    >
+                        <div className="absolute inset-0 bg-black bg-opacity-20 h-full w-full" />
+                        <img src={image} alt="image" className="w-full h-full object-cover object-center" />
+                    </motion.div>
+                ))}
             </motion.div>
+
+
         </motion.div>
     );
 };
