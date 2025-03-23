@@ -1,3 +1,4 @@
+import AboutSection from '@/components/About';
 import HeroSection from '@/components/Hero';
 import Head from 'next/head';
 
@@ -33,6 +34,7 @@ export default function Home() {
 
       {/* Main Content */}
       <HeroSection />
+      <AboutSection />
     </>
   );
 }

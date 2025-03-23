@@ -10,7 +10,7 @@ export const ImagesSlider = ({
     overlayClassName,
     className,
     autoplay = true,
-    direction = "up"
+    direction = "right"
 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [loading, setLoading] = useState(false);
@@ -48,6 +48,7 @@ export const ImagesSlider = ({
             })
             .catch((error) => console.error("Failed to load images", error));
     };
+
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (event.key === "ArrowRight") {
@@ -75,31 +76,23 @@ export const ImagesSlider = ({
 
     const slideVariants = {
         initial: {
-            scale: 0,
             opacity: 0,
-            rotateX: 45,
+            x: "100%",
         },
         visible: {
-            scale: 1,
-            rotateX: 0,
             opacity: 1,
-            transition: {
-                duration: 0.5,
-                ease: [0.645, 0.045, 0.355, 1.0],
-            },
-        },
-        upExit: {
-            opacity: 1,
-            y: "-150%",
+            x: "0%",
             transition: {
                 duration: 1,
+                ease: "easeInOut",
             },
         },
-        downExit: {
+        exit: {
             opacity: 1,
-            y: "150%",
+            x: "-100%",
             transition: {
                 duration: 1,
+                ease: "easeInOut",
             },
         },
     };
@@ -126,7 +119,7 @@ export const ImagesSlider = ({
                         src={loadedImages[currentIndex]}
                         initial="initial"
                         animate="visible"
-                        exit={direction === "up" ? "upExit" : "downExit"}
+                        exit="exit"
                         variants={slideVariants}
                         className="image h-full w-full absolute inset-0 object-cover object-center" />
                 </AnimatePresence>
