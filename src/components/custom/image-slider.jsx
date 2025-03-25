@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 
 export const ImagesSlider = ({
     images,
+    children,
     selectedImage,
     setSelectedImage,
     overlay = true,
@@ -63,6 +64,7 @@ export const ImagesSlider = ({
             className={cn("overflow-hidden h-full w-full relative flex items-center justify-center", className)}
             style={{ perspective: "1000px" }}
         >
+            {overlay && children}
             {overlay && <div className={cn("absolute inset-0 bg-black/70 z-40", overlayClassName)} />}
             <AnimatePresence>
                 <motion.img

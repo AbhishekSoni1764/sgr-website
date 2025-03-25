@@ -18,6 +18,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.0.0-alpha.1",
     "gsap": "^3.12.7",
+    "lenis": "^1.2.3",
     "next": "15.1.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

@@ -1,7 +1,7 @@
 import { Barlow, Barlow_Condensed, Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import SmoothScrolling from "@/lib/lenis-config";
+import { ReactLenis } from "@/lib/lenis-config.js"
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -35,7 +35,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${barlow.variable} ${barlowCondensed.variable} ${poppins.variable} antialiased`}>
         <Navbar className="bg-transparent rounded-none" />
-        <SmoothScrolling>{children}</SmoothScrolling>
+        <ReactLenis root options={{ lerp: 0.1, duration: 1.8, smoothTouch: true }}>{children}</ReactLenis>
       </body>
     </html>
   );
