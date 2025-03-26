@@ -1,6 +1,7 @@
 import AboutSection from '@/components/About';
 import ApartSection from '@/components/Apart';
 import HeroSection from '@/components/Hero';
+import OurProducts from '@/components/Products';
 import Head from 'next/head';
 
 
@@ -37,6 +38,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <ApartSection />
+      <OurProducts />
     </>
   );
 }

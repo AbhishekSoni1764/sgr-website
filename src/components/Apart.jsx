@@ -15,7 +15,7 @@ const ApartSection = () => {
             variants={staggerContainer}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="h-auto min-h-screen w-full flex flex-col justify-center bg-slate-200 items-center p-10 tracking-wide gap-16">
+            className="h-auto min-h-screen w-full flex flex-col justify-center bg-slate-100 items-center p-10 tracking-wide gap-16">
             <motion.p
                 className="font-barlow font-black max-w-5xl leading-max text-6xl text-primary-800"
                 initial="hidden"
