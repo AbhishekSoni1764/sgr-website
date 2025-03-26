@@ -20,6 +20,15 @@ module.exports = {
       poppins: ["var(--font-poppins)"],
     },
     extend: {
+      animation: {
+        move: "move 5s linear infinite",
+      },
+      keyframes: {
+        move: {
+          "0%": { transform: "translateX(-200px)" },
+          "100%": { transform: "translateX(200px)" },
+        },
+      },
       colors: {
         secondary: {
           800: "#09803D",
