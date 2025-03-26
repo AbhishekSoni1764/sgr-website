@@ -16,13 +16,15 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { contactFormSchema } from "@/schema/contact-zod";
 import SendIcon from "@mui/icons-material/Send";
+import { motion } from "framer-motion";
+import { slideRight } from "@/lib/framer-animations";
 
 const API_BASE_URL =
     process.env.NODE_ENV === "development"
         ? "http://localhost:3000/"
         : "https://shyamglobalresources.vercel.app";
 
-const ContactForm = () => {
+const ContactForm = ({ isInView }) => {
     const { toast } = useToast();
     const [loading, setLoading] = useState(false);
 
@@ -61,7 +63,11 @@ const ContactForm = () => {
     };
 
     return (
-        <div className="flex flex-col w-full max-w-2xl ml-20 font-barlow">
+        <motion.div
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={slideRight}
+            className="flex flex-col w-full max-w-2xl ml-20 font-barlow">
             <h2 className="text-5xl font-bold mb-8 uppercase text-start">Contact Us</h2>
 
             <Form {...form}>
@@ -178,7 +184,7 @@ const ContactForm = () => {
                     </Button>
                 </form>
             </Form>
-        </div>
+        </motion.div>
     );
 };
 

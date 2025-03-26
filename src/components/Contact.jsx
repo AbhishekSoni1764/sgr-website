@@ -6,6 +6,9 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { slideLeft, staggerContainer } from "@/lib/framer-animations";
 
 const ContactUs = () => {
 
@@ -16,9 +19,20 @@ const ContactUs = () => {
         { icon: <InstagramIcon />, label: 'Instagram' },
     ];
 
+    const ref = useRef();
+    const isInView = useInView(ref, { once: true, amount: 0.3 });
     return (
-        <div className="flex w-full p-10 justify-center items-center min-h-screen h-full">
-            <div className="w-[40%] h-auto font-barlow flex flex-col justify-between items-start gap-10">
+        <motion.div
+            ref={ref}
+            variants={staggerContainer}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="flex w-full p-10 justify-center items-center min-h-screen h-full">
+            <motion.div
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                variants={slideLeft}
+                className="w-[40%] h-auto font-barlow flex flex-col justify-between items-start gap-10">
                 <div className="flex flex-col gap-4 justify-center items-start">
                     <h2 className="text-3xl font-bold">Shyam Global Resources</h2>
                     <p className="text-md font-light text-slate-500">Delivering Excellence, Empowering Industries, Building Trust.</p>
@@ -55,10 +69,10 @@ const ContactUs = () => {
                     </div>
                 </div>
 
-            </div>
+            </motion.div>
             <div className="w-[1px] h-[65vh] bg-slate-400" />
-            <ContactForm />
-        </div>
+            <ContactForm isInView={isInView} />
+        </motion.div>
     );
 };
 
