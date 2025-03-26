@@ -159,7 +159,7 @@ const ContactForm = () => {
                             <FormItem>
                                 <FormControl>
                                     <textarea
-                                        className="w-full h-32 p-4 text-lg border rounded-lg"
+                                        className="w-full h-32 p-4 text-base border rounded-lg"
                                         placeholder="Your Doubts/Queries"
                                         {...field}
                                     />

@@ -47,7 +47,7 @@ const ContactUs = () => {
                                 <div className="p-5 bg-white text-secondary-800 hover:text-white hover:bg-secondary-800 rounded-full shadow-md cursor-pointer">
                                     {item.icon}
                                 </div>
-                                <span className="absolute font-medium top-16 opacity-0 group-hover:opacity-100 transition-opacity bg-secondary-800 text-white text-sm px-4 py-2 rounded-lg shadow-md">
+                                <span className="absolute font-medium top-20 opacity-0 group-hover:opacity-100 transition-opacity bg-secondary-800 text-white text-sm px-4 py-2 rounded-lg shadow-md">
                                     {item.label}
                                 </span>
                             </div>
