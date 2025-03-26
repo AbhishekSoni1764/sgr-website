@@ -1,9 +1,13 @@
 "use client";
+import { cardVariants } from "@/lib/framer-animations";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 export function ApartCard({ title, description, image, video }) {
     return (
-        <div className="max-w-xs w-full">
+        <motion.div
+            variants={cardVariants}
+            className="max-w-xs w-full">
             <div
                 className={cn(
                     "group w-full cursor-pointer overflow-hidden relative card h-96 rounded-2xl shadow-xl mx-auto flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800",
@@ -23,6 +27,6 @@ export function ApartCard({ title, description, image, video }) {
                     </p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

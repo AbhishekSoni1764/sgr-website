@@ -1,5 +1,5 @@
-'use client'
-import { staggerContainer } from "@/lib/framer-animations";
+'use client';
+import { fadeInDown, staggerContainer } from "@/lib/framer-animations";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ApartCard } from "./custom/apart-card";
@@ -20,6 +20,7 @@ const ApartSection = () => {
                 className="font-barlow font-black max-w-5xl leading-max text-6xl text-primary-800"
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
+                variants={fadeInDown}
                 transition={{ duration: 0.6, delay: 0.1 }}
             >
                 What Sets Us Apart

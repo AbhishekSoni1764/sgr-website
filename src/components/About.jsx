@@ -1,6 +1,6 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import { staggerContainer, zoomIn } from "@/lib/framer-animations";
+import { fadeInDown, fadeInUp, staggerContainer } from "@/lib/framer-animations";
 import { useRef } from "react";
 
 const AboutSection = () => {
@@ -16,14 +16,14 @@ const AboutSection = () => {
             className="h-auto min-h-screen w-full flex flex-col justify-center items-center p-10 tracking-wide text-center gap-10"
         >
             <motion.p
-                variants={zoomIn}
+                variants={fadeInDown}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="font-barlow font-black max-w-5xl leading-max text-6xl text-primary-800 pt-32"
             >
                 Your Trusted Partner for Industrial Salt Solutions
             </motion.p>
             <motion.p
-                variants={zoomIn}
+                variants={fadeInUp}
                 transition={{ duration: 0.4, delay: 1 }}
                 className="font-barlow text-slate-400 max-w-5xl px-4 text-[1.7rem] leading-9"
             >
