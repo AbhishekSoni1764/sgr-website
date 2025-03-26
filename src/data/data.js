@@ -110,3 +110,27 @@ export const products = [
         image_url: "https://htmcgroup.com/assets/images/products/pvd-salt-500x500.webp"
     }
 ];
+
+
+export const strengths = [
+    {
+        image: "/strength/quality.svg",
+        title: "Assured Quality",
+        description: "We are committed to providing industrial salts of the highest purity and consistent quality. Our stringent quality control processes ensure that every product meets the highest industry standards.",
+    },
+    {
+        image: "/strength/expertise.svg",
+        title: "Industry Expertise",
+        description: "Backed by years of experience, we bring in-depth knowledge and technical expertise to the production and supply of industrial salts, making us a trusted partner for clients worldwide.",
+    },
+    {
+        image: "/strength/pricing.svg",
+        title: "Competitive Pricing",
+        description: "Combining competitive pricing with exceptional quality, we offer products that add value to your operations without exceeding your budget.",
+    },
+    {
+        image: "/strength/reach.svg",
+        title: "Global Reach",
+        description: "With a robust logistics and supply chain network, we ensure timely and reliable delivery across domestic and international markets.",
+    },
+]

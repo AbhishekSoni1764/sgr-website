@@ -2,6 +2,7 @@ import AboutSection from '@/components/About';
 import ApartSection from '@/components/Apart';
 import HeroSection from '@/components/Hero';
 import OurProducts from '@/components/Products';
+import OurStrengths from '@/components/Strength';
 import Head from 'next/head';
 
 
@@ -39,6 +40,7 @@ export default function Home() {
       <AboutSection />
       <ApartSection />
       <OurProducts />
+      <OurStrengths />
     </>
   );
 }
