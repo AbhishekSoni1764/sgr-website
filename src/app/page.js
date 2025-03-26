@@ -1,5 +1,6 @@
 import AboutSection from '@/components/About';
 import ApartSection from '@/components/Apart';
+import ContactUs from '@/components/Contact';
 import HeroSection from '@/components/Hero';
 import OurProducts from '@/components/Products';
 import OurStrengths from '@/components/Strength';
@@ -41,6 +42,7 @@ export default function Home() {
       <ApartSection />
       <OurProducts />
       <OurStrengths />
+      <ContactUs />
     </>
   );
 }
