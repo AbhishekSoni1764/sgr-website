@@ -6,14 +6,26 @@ import EmailIcon from "@mui/icons-material/Email";
 import EastIcon from "@mui/icons-material/East";
 import { fadeInDown, fadeInUp, staggerContainer } from "@/lib/framer-animations";
 import { heroImages } from "@/data/data";
-
+import { useLenis } from "lenis/react"
 const HeroSection = () => {
     const [selectedImage, setSelectedImage] = useState(null);
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.1 });
+    const lenis = useLenis();
+
+    const scrollToSection = (id) => {
+        if (lenis) {
+            lenis.scrollTo(`#${id}`, {
+                offset: 0,
+                duration: 1.5,
+                easing: (t) => t * (2 - t),
+            });
+        }
+    };
+
 
     return (
-        <motion.div className="h-screen w-full flex flex-col justify-center items-center">
+        <motion.div id="home" className="h-screen w-full flex flex-col justify-center items-center">
             <ImagesSlider
                 className="h-screen text-secondary-800 flex flex-col justify-center items-center font-barlow"
                 images={heroImages}
@@ -43,22 +55,25 @@ const HeroSection = () => {
                             variants={fadeInUp}
                             transition={{ duration: 0.6, delay: 0.6 }}
                             className="px-8 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-300/20 text-white mx-auto text-center rounded-full relative mt-4 flex gap-2 items-center justify-center"
+                            onClick={() => scrollToSection("products")}
                         >
                             <span>Products</span>
                             <EastIcon />
                             <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
                         </motion.button>
-                        <motion.button
-                            initial="hidden"
-                            animate={isInView ? "visible" : "hidden"}
-                            variants={fadeInUp}
-                            transition={{ duration: 0.6, delay: 0.8 }}
-                            className="px-8 py-2 backdrop-blur-sm border bg-slate-100/10 border-slate-100/20 text-white mx-auto text-center rounded-full relative mt-4 flex gap-2 items-center justify-center"
-                        >
-                            <EmailIcon />
-                            <span>Email</span>
-                            <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-slate-200 to-transparent" />
-                        </motion.button>
+                        <a href="mailto:shyamglobalresources@gmail.com">
+                            <motion.button
+                                initial="hidden"
+                                animate={isInView ? "visible" : "hidden"}
+                                variants={fadeInUp}
+                                transition={{ duration: 0.6, delay: 0.8 }}
+                                className="px-8 py-2 backdrop-blur-sm border bg-slate-100/10 border-slate-100/20 text-white mx-auto text-center rounded-full relative mt-4 flex gap-2 items-center justify-center"
+                            >
+                                <EmailIcon />
+                                <span>Email</span>
+                                <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-slate-200 to-transparent" />
+                            </motion.button>
+                        </a>
                     </motion.div>
                 </motion.div>
             </ImagesSlider>

@@ -9,6 +9,7 @@ const AboutSection = () => {
 
     return (
         <motion.div
+            id="about"
             ref={ref}
             variants={staggerContainer}
             initial="hidden"

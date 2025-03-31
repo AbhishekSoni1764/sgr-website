@@ -2,6 +2,7 @@ import AboutSection from '@/components/About';
 import ApartSection from '@/components/Apart';
 import ContactUs from '@/components/Contact';
 import HeroSection from '@/components/Hero';
+import HomeComponent from '@/components/Home-Component';
 import OurProducts from '@/components/Products';
 import OurStrengths from '@/components/Strength';
 import Head from 'next/head';
@@ -58,12 +59,7 @@ export default function Home() {
         }} />
       </Head>
 
-      <HeroSection />
-      <AboutSection />
-      <ApartSection />
-      <OurProducts />
-      <OurStrengths />
-      <ContactUs />
+      <HomeComponent />
     </>
   );
 }

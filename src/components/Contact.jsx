@@ -24,6 +24,7 @@ const ContactUs = () => {
     const isInView = useInView(ref, { once: true, amount: 0.3 });
     return (
         <motion.div
+            id="contact"
             ref={ref}
             variants={staggerContainer}
             initial="hidden"

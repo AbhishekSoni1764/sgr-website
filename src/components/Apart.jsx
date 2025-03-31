@@ -11,6 +11,7 @@ const ApartSection = () => {
 
     return (
         <motion.div
+            id="why"
             ref={ref}
             variants={staggerContainer}
             initial="hidden"

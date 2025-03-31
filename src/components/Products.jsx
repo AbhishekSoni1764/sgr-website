@@ -58,6 +58,7 @@ const OurProducts = () => {
 
     return (
         <motion.div
+            id="products"
             ref={ref}
             variants={staggerContainer}
             initial="hidden"
