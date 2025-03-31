@@ -69,7 +69,7 @@ const HeroSection = () => {
                         key={index}
                         initial={{ opacity: 0, scale: 0.8, y: 0 }}
                         animate={{ opacity: 1, scale: 1, y: index % 2 === 0 ? "-10vw" : "-7vw" }}
-                        whileHover={{ y: index % 2 !== 0 ? "-11vw" : "-8vw", transition: { duration: 0.3, ease: "easeInOut" } }}
+                        whileHover={{ y: index % 2 === 0 ? "-11vw" : "-8vw", transition: { duration: 0.3, ease: "easeInOut" } }}
                         transition={{ duration: 0.2, delay: 0.1 * index }}
                         className="relative w-[28vw] h-72 bg-slate-600 cursor-pointer"
                         onClick={() => setSelectedImage(image)}

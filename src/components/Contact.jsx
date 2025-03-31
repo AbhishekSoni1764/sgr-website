@@ -9,6 +9,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { slideLeft, staggerContainer } from "@/lib/framer-animations";
+import { socialData } from "@/data/data"
 
 const ContactUs = () => {
 
@@ -27,29 +28,32 @@ const ContactUs = () => {
             variants={staggerContainer}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
-            className="flex w-full p-10 justify-center items-center min-h-screen h-full">
+            className="flex w-full p-10 justify-center items-center min-h-screen h-full overflow-hidden">
             <motion.div
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 variants={slideLeft}
                 className="w-[40%] h-auto font-barlow flex flex-col justify-between items-start gap-10">
                 <div className="flex flex-col gap-4 justify-center items-start">
-                    <h2 className="text-3xl font-bold">Shyam Global Resources</h2>
-                    <p className="text-md font-light text-slate-500">Delivering Excellence, Empowering Industries, Building Trust.</p>
+                    <h2 className="text-3xl font-bold">{socialData?.name}</h2>
+                    <p className="text-md font-light text-slate-500">{socialData?.description}</p>
                 </div>
                 <div className="flex flex-col justify-center items-start gap-5">
                     <div className="flex gap-5 items-center">
                         <Image src={'/contact.svg'} width={60} height={60} alt="contact" />
                         <div className="flex flex-col items-start justify-center gap-1">
                             <span>Phone Number</span>
-                            <a className="font-medium tracking-wide" href="tel:+919829266033">+91 9829266033</a>
+                            <div className="flex justify-center items-center gap-3">
+                                <a className="font-medium tracking-wide" href={`tel:${socialData?.phoneNumber1}`}>{socialData?.phoneNumber1}</a> |
+                                <a className="font-medium tracking-wide" href={`tel:${socialData?.phoneNumber1}`}>{socialData?.phoneNumber2}</a>
+                            </div>
                         </div>
                     </div>
                     <div className="flex gap-5 items-center">
                         <Image src={'/email.svg'} width={60} height={60} alt="contact" />
                         <div className="flex flex-col items-start justify-center gap-1">
                             <span>Email</span>
-                            <a className="font-medium tracking-wide" href="mailto:shyamglobalresources@gmail.com">shyamglobalresources@gmail.com</a>
+                            <a className="font-medium tracking-wide" href={`tel:${socialData?.email}`}>{socialData?.email}</a>
                         </div>
                     </div>
                 </div>

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ReactLenis } from "@/lib/lenis-config.js"
 import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/Footer";
 
 const barlow = Barlow({
   variable: "--font-barlow",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         className={`${barlow.variable} ${barlowCondensed.variable} ${poppins.variable} antialiased`}>
         <Navbar className="bg-transparent rounded-none" />
         <ReactLenis root options={{ lerp: 0.1, duration: 1.8, smoothTouch: true }}>{children}<Toaster /></ReactLenis>
+        <Footer />
       </body>
     </html>
   );

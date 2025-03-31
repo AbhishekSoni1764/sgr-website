@@ -1,7 +1,6 @@
 import AboutSection from '@/components/About';
 import ApartSection from '@/components/Apart';
 import ContactUs from '@/components/Contact';
-import Footer from '@/components/Footer';
 import HeroSection from '@/components/Hero';
 import OurProducts from '@/components/Products';
 import OurStrengths from '@/components/Strength';
@@ -34,17 +33,37 @@ export default function Home() {
           content="Welcome to Shyam Global Resources, your partner for innovative global solutions and services."
         />
         <meta name="twitter:image" content="/path/to/twitter-image.jpg" />
-        <link rel="canonical" href="https://yourwebsite.com" />
+        <link rel="canonical" href="https://shyamglobalresources.vercel.app/" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Shyam Global Resources",
+            "url": "https://shyamglobalresources.vercel.app/",
+            "logo": "https://yourwebsite.com/logo.png",
+            "description": "Shyam Global Resources - Delivering cutting-edge global solutions.",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91 9876543210",
+              "contactType": "customer service",
+              "areaServed": "Worldwide",
+              "availableLanguage": ["English", "Hindi"]
+            },
+            "sameAs": [
+              "https://www.facebook.com/shyamglobal",
+              "https://www.linkedin.com/company/shyam-global-resources",
+              "https://twitter.com/shyamglobal"
+            ]
+          })
+        }} />
       </Head>
 
-      {/* Main Content */}
       <HeroSection />
       <AboutSection />
       <ApartSection />
       <OurProducts />
       <OurStrengths />
       <ContactUs />
-      <Footer />
     </>
   );
 }

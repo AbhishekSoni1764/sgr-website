@@ -134,3 +134,15 @@ export const strengths = [
         description: "With a robust logistics and supply chain network, we ensure timely and reliable delivery across domestic and international markets.",
     },
 ]
+
+export const socialData = {
+    name: "Shyam Global Resources",
+    description: "Delivering Excellence, Empowering Industries, Building Trust.",
+    phoneNumber1: "+91 9829266033",
+    phoneNumber2: "+91 9829266033",
+    email: "shyamglobalresources@gmail.com",
+    facebook: "https://www.facebook.com/",
+    twitter: "https://www.x.com/",
+    linkedin: "https://www.linkedin.com/",
+    instagram: "https://www.instagram.com/"
+}
